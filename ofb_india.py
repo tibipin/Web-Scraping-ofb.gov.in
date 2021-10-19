@@ -13,7 +13,7 @@ try:
 except WebDriverException:
     print('Please visit README.md => msedgedriver executable is missing')
 
-driver.get(url='https://ofb.gov.in/vendor/general_reports/show/registered_vendors/search')
+driver.get(url='http://ddpdoo.gov.in/vendor/general_reports/show/registered_vendors')
 
 # ===> Read cwr keywords int a dataframe
 
@@ -54,6 +54,7 @@ def search_page(keyword):
             if 'data-ci-pagination-page' in page.attrs:
                 if page.text.isdigit():
                     driver.get(page.attrs['href'])
+                    html_page = driver.page_source
                     with open(fr'{output_folder}\{keyword}_page_{i}.txt', 'w', encoding='utf-8') as f:
                         f.write(html_page)
                         f.close()
