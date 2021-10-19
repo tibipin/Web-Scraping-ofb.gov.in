@@ -1,6 +1,6 @@
-# OFB India WebScraper
+# OFB India Web Scraper
 
-Project developed for Sustainalytics to find indian suppliers of controversial weapons in the largest [indian vendor database](https://ofb.gov.in/vendor/general_reports/show/registered_vendors/search)
+Project developed for Sustainalytics to find Indian suppliers of controversial weapons in the largest [Indian Vendor Database](https://ofb.gov.in/vendor/general_reports/show/registered_vendors/search)
 
 ### Prerequisites
 
