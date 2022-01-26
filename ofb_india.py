@@ -111,10 +111,12 @@ def file_parser(file):
     numbers = []
     names = []
     products = []
+    factories = []
     for i in rows:
         numbers.append(i[0].text)
         names.append(i[1].text.split('\n')[0])
         products.append(str(i[-3]))
+        factories.append(rows[0][3].text.strip('\n'))
 
     # Generate final data frame
 
@@ -122,6 +124,7 @@ def file_parser(file):
         {'Index on OFB India Page': numbers,
          'Company Name': names,
          'Products': products,
+         'Factory': factories,
          'Keyword': os.path.basename(file).split('_')[0]
          })
 
@@ -137,7 +140,7 @@ for filename in os.listdir(output_folder):
     final_df = final_df.append(filename_level_df)
 
 final_df = final_df.merge(keywords_df, on='Keyword')
-final_df.to_excel('OFB_India_scrape.xlsx', index=False)
+final_df.to_excel('OFB_India_scrape_2022-01-26.xlsx', index=False)
 
 print(f'===> OFB India Scraper has run in: {(time.time() - start_time)} seconds')
 print(f'===> Number of keywords searched: {len(keywords_df)}')
